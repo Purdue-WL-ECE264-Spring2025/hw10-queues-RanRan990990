@@ -1,8 +1,7 @@
 #include "linked_list.h"
-#include <stdlib.h>
+#include <stdlib.h
 #include <stdio.h>
 
-// Create a new list node with the given value.
 struct list_node *new_node(size_t value) { 
     struct list_node *node = malloc(sizeof(struct list_node));
     if (!node) {
@@ -14,20 +13,18 @@ struct list_node *new_node(size_t value) {
     return node;
 }
 
-// Insert a new node at the head of the list.
 void insert_at_head(struct linked_list *list, size_t value) {
     struct list_node *node = new_node(value);
     node->next = list->head;
     list->head = node;
 }
 
-// Insert a new node at the tail of the list by traversing from the head.
 void insert_at_tail(struct linked_list *list, size_t value) {
     struct list_node *node = new_node(value);
-    if (list->head == NULL) {  // If the list is empty, new node becomes the head.
+    if (list->head == NULL) {  
         list->head = node;
     } else {
-        // Traverse to the last node.
+  
         struct list_node *current = list->head;
         while (current->next != NULL) {
             current = current->next;
